@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { generateRandomArray } from "./utils";
-import { bubbleSort } from "./algorithms/bubble-sort";
 import { Visualizer } from "./components/visualizer";
 import { useSortingAnimator } from "./hooks/use-sorting-animator";
 import { useState } from "react";
+import { selectionSort } from "./algorithms/selection-sort";
 
 const Container = styled.div({
   display: "flex",
@@ -16,7 +16,7 @@ const Button = styled.button({
   cursor: "pointer",
 });
 
-const SliderContaienr = styled.div({
+const SliderContainer = styled.div({
   alignSelf: "center",
   display: "flex",
   gap: 20,
@@ -25,13 +25,15 @@ const SliderContaienr = styled.div({
 const RangeSlider = styled.input({});
 
 const App = () => {
-  const [listLength, setListLength] = useState<number>(30);
+  const [listLength, setListLength] = useState<number>(23);
 
   const list = generateRandomArray(listLength);
 
+  // console.log("sorted : ", selectionSort(list));
+
   const { data, startAnimation, changeData, started } = useSortingAnimator(
     { list },
-    bubbleSort,
+    selectionSort,
     10
   );
 
@@ -52,7 +54,7 @@ const App = () => {
           Generate Random Array
         </Button>
 
-        <SliderContaienr>
+        <SliderContainer>
           <RangeSlider
             onChange={(e) => {
               setListLength(e.currentTarget.valueAsNumber);
@@ -64,7 +66,7 @@ const App = () => {
             max="100"
           />
           <p>{listLength}</p>
-        </SliderContaienr>
+        </SliderContainer>
       </Container>
       <Visualizer props={data} />
     </>

@@ -1,24 +1,22 @@
 import { SortingAnim } from "../utils/types";
 
 export const bubbleSort = function* (
-  arr: number[]
+  list: number[]
 ): Generator<SortingAnim, void, unknown> {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - 1; j++) {
+  for (let i = 0; i < list.length; i++) {
+    for (let j = 0; j < list.length - 1; j++) {
       yield {
-        list: arr,
+        list,
         scanningIdx: [j, j + 1],
-        swappingIdx: [],
       };
 
-      if (arr[j] > arr[j + 1]) {
-        const temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
+      if (list[j] > list[j + 1]) {
+        const temp = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = temp;
 
         yield {
-          list: arr,
-          scanningIdx: [],
+          list,
           swappingIdx: [j, j + 1],
         };
       }
@@ -26,8 +24,6 @@ export const bubbleSort = function* (
   }
 
   yield {
-    list: arr,
-    scanningIdx: [],
-    swappingIdx: [],
+    list,
   };
 };
