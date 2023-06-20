@@ -3,7 +3,7 @@ import { generateRandomArray } from "./utils";
 import { Visualizer } from "./components/visualizer";
 import { useSortingAnimator } from "./hooks/use-sorting-animator";
 import { useState } from "react";
-import { selectionSort } from "./algorithms/selection-sort";
+import { insertionSort } from "./algorithms/insertion-sort";
 
 const Container = styled.div({
   display: "flex",
@@ -29,11 +29,9 @@ const App = () => {
 
   const list = generateRandomArray(listLength);
 
-  // console.log("sorted : ", selectionSort(list));
-
   const { data, startAnimation, changeData, started } = useSortingAnimator(
     { list },
-    selectionSort,
+    insertionSort,
     10
   );
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { SortingAnim } from "../utils/types";
 
-export const useSortingAnimator = <T extends { list: number[] }>(
+export const useSortingAnimator = <T extends Pick<SortingAnim, "list">>(
   input: T,
   generatorFn: (input: number[]) => Generator<T, void, unknown>,
   timeout: number

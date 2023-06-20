@@ -18,17 +18,12 @@ const Bar = styled.div<{
 }>(
   {
     width: 20,
-    background: "red",
     alignSelf: "flex-end",
     borderRadius: "2px 2px 0 0",
   },
   (props) => ({
     height: `${props.height}%`,
-    background: props.scanning
-      ? "yellow"
-      : props.swapping
-      ? "green"
-      : undefined,
+    background: props.scanning ? "yellow" : props.swapping ? "green" : "red",
   })
 );
 
