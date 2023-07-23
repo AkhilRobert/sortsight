@@ -3,18 +3,18 @@ import { SortingAnim } from "../utils/types";
 
 export const Visualizer: FC<{ props: SortingAnim }> = ({ props }) => {
   return (
-    <div className="h-screen w-full flex gap-1">
+    <div className="w-full h-full flex justify-center gap-0.5">
       {props.list.map((v, i) => (
         <div
           key={i}
-          className="rounded-t-sm w-20 self-end"
+          className="rounded-t-sm max-w-[15px] w-[5%] self-end opacity-50"
           style={{
             height: `${v}%`,
             background: props.scanningIdx?.includes(i)
-              ? "yellow"
+              ? "var(--scanning)"
               : props.swappingIdx?.includes(i)
-              ? "green"
-              : "red",
+              ? "var(--swapping)"
+              : "var(--primary)",
           }}
         />
       ))}

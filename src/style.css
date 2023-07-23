@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #7149c6;
+  --scanning: #29fcde;
+  --swapping: #fc2947;
+
+  --grey: #848884;
+
+  --nav-height: 50px;
+}
+
+html {
+  font-family: "Agdasima", sans-serif;
+}
