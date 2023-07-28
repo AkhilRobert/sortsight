@@ -35,7 +35,7 @@ input[type="range"] {
   height: 4px;
   border-radius: 20px;
 
-  @apply bg-purple-300;
+  @apply bg-purple-300 hover:cursor-grab active:cursor-grabbing;
 }
 
 input[type="range"]::-webkit-slider-thumb {

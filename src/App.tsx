@@ -6,6 +6,7 @@ import { bubbleSort } from "./algorithms/bubble-sort";
 import { selectionSort } from "./algorithms/selection-sort";
 import { insertionSort } from "./algorithms/insertion-sort";
 import { SortingAnim } from "./utils/types";
+import { useClickAway } from "./hooks/useClickAway";
 
 const algorithms: Record<
   string,
@@ -31,8 +32,17 @@ const App = () => {
     Generator<SortingAnim, void, unknown>
   >(bubbleSort(data.list));
 
+  const ref = useRef<HTMLDivElement>(null);
+
   const canUpdateData = useRef<boolean>(false);
   const canUpdateAlgorithm = useRef<boolean>(false);
+
+  useClickAway(ref, () => {
+    console.log(showSettings);
+    if (showSettings) {
+      setShowSettings(false);
+    }
+  });
 
   useEffect(() => {
     // Don't update array on initial render
@@ -107,7 +117,7 @@ const App = () => {
           </div>
         </div>
         {showSettings && (
-          <div className="floating-settings">
+          <div ref={ref} className="floating-settings">
             <div className="input">
               <label htmlFor="algorithm">algorithm</label>
               <select
