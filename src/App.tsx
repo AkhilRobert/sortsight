@@ -1,4 +1,4 @@
-import { generateRandomArray } from "./utils";
+import { calculatePercentage, generateRandomArray } from "./utils";
 import { Visualizer } from "./components/visualizer";
 import { useEffect, useRef, useState } from "react";
 import { TbTriangle, TbRepeat, TbSettings } from "react-icons/tb";
@@ -19,6 +19,12 @@ const algorithms: Record<
 
 const algorithmName = Object.keys(algorithms);
 
+const LIST_MIN = 10;
+const LIST_MAX = 100;
+
+const SPEED_MIN = 10;
+const SPEED_MAX = 100;
+
 const App = () => {
   const [listLength, setListLength] = useState<number>(30);
   const [algorithm, setAlgorithm] = useState<string>(algorithmName[0]);
@@ -38,7 +44,6 @@ const App = () => {
   const canUpdateAlgorithm = useRef<boolean>(false);
 
   useClickAway(ref, () => {
-    console.log(showSettings);
     if (showSettings) {
       setShowSettings(false);
     }
@@ -82,6 +87,9 @@ const App = () => {
       clearInterval(id);
     };
   }, [generator, started, speed]);
+
+  const listPercentage = calculatePercentage(listLength, LIST_MIN, LIST_MAX);
+  const speedPercentage = calculatePercentage(speed, SPEED_MIN, SPEED_MAX);
 
   return (
     <main>
@@ -137,11 +145,15 @@ const App = () => {
               <div className="flex items-center gap-4">
                 <input
                   className="w-9/12"
+                  style={{
+                    background: `linear-gradient(to right, #a855f7 ${listPercentage}%, #d8b4fe ${listPercentage}%)`,
+                  }}
                   value={listLength}
                   onChange={(e) => {
                     setListLength(e.currentTarget.valueAsNumber);
                   }}
-                  min={10}
+                  min={LIST_MIN}
+                  max={LIST_MAX}
                   name="arraySize"
                   type="range"
                 />
@@ -154,12 +166,16 @@ const App = () => {
 
               <div className="flex items-center gap-4">
                 <input
+                  style={{
+                    background: `linear-gradient(to right, #a855f7 ${speedPercentage}%, #d8b4fe ${speedPercentage}%)`,
+                  }}
                   className="w-9/12"
                   value={speed}
                   onChange={(e) => {
                     setSpeed(e.currentTarget.valueAsNumber);
                   }}
-                  min={10}
+                  min={SPEED_MIN}
+                  max={SPEED_MAX}
                   name="timing"
                   type="range"
                 />

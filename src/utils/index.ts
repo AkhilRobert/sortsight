@@ -9,3 +9,9 @@ export const generateRandomArray = (size: number) => {
     .fill(0)
     .map(() => clamp(Math.round(Math.random() * 100), 1, 100));
 };
+
+export const calculatePercentage = (
+  current: number,
+  min: number,
+  max: number
+) => ((current - min) * 100) / (max - min);
