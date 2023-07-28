@@ -23,9 +23,25 @@ html {
 }
 
 .input {
-  @apply flex flex-col;
+  @apply flex flex-col gap-4;
 }
 
 .input > label {
   @apply text-base capitalize font-bold;
+}
+
+input[type="range"] {
+  appearance: none;
+  height: 4px;
+  border-radius: 20px;
+
+  @apply bg-purple-300;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  @apply bg-purple-500;
 }

@@ -46,7 +46,6 @@ const App = () => {
   useEffect(() => {
     // Don't update algorithm on initial render
     if (canUpdateAlgorithm.current) {
-      console.log("me");
       const fn = algorithms[algorithm];
       setGenerator(fn(data.list));
     } else {
@@ -126,26 +125,37 @@ const App = () => {
 
             <div className="input">
               <label htmlFor="arraySize">Array Size</label>
-              <input
-                value={listLength}
-                onChange={(e) => {
-                  setListLength(e.currentTarget.valueAsNumber);
-                }}
-                name="arraySize"
-                type="range"
-              />
+              <div className="flex items-center gap-4">
+                <input
+                  className="w-9/12"
+                  value={listLength}
+                  onChange={(e) => {
+                    setListLength(e.currentTarget.valueAsNumber);
+                  }}
+                  min={10}
+                  name="arraySize"
+                  type="range"
+                />
+                <span>{listLength}</span>
+              </div>
             </div>
 
             <div className="input">
               <label htmlFor="timing">Sorting speed</label>
-              <input
-                value={speed}
-                onChange={(e) => {
-                  setSpeed(e.currentTarget.valueAsNumber);
-                }}
-                name="timing"
-                type="range"
-              />
+
+              <div className="flex items-center gap-4">
+                <input
+                  className="w-9/12"
+                  value={speed}
+                  onChange={(e) => {
+                    setSpeed(e.currentTarget.valueAsNumber);
+                  }}
+                  min={10}
+                  name="timing"
+                  type="range"
+                />
+                <span>{speed} ms</span>
+              </div>
             </div>
           </div>
         )}
