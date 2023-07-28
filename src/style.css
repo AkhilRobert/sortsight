@@ -19,7 +19,7 @@ html {
 }
 
 .floating-settings {
-  @apply absolute bg-white z-10 right-0 top-[49px] flex flex-col gap-3 w-8/12 border-black border p-2;
+  @apply absolute bg-white z-10 right-0 top-[49px] flex flex-col gap-3 w-8/12 border-black border p-2 md:w-5/12;
 }
 
 .input {
@@ -27,7 +27,7 @@ html {
 }
 
 .input > label {
-  @apply text-base capitalize font-bold;
+  @apply text-lg capitalize font-bold;
 }
 
 input[type="range"] {

@@ -58,7 +58,6 @@ const App = () => {
     let id: number;
     if (started) {
       id = setInterval(() => {
-        console.log(id);
         const sorted = generator.next();
         if (!sorted.done) {
           setData(sorted.value);
