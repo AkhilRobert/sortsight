@@ -1,5 +1,6 @@
 import { SortingAnim } from "../utils/types";
 
+// TODO: change to the optimized version of bubble sort
 export const bubbleSort = function* (
   list: number[]
 ): Generator<SortingAnim, void, unknown> {

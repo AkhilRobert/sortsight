@@ -4,9 +4,13 @@ import { useSortingAnimator } from "./hooks/use-sorting-animator";
 import { useState } from "react";
 import { TbTriangle, TbRepeat, TbSettings } from "react-icons/tb";
 import { bubbleSort } from "./algorithms/bubble-sort";
+import { selectionSort } from "./algorithms/selection-sort";
+import { insertionSort } from "./algorithms/insertion-sort";
 
 const App = () => {
-  const [listLength] = useState<number>(30);
+  const [listLength, setListLength] = useState<number>(30);
+  const [showSettings, setShowSettings] = useState<boolean>(false);
+
   const list = generateRandomArray(listLength);
 
   const { data, startAnimation, started, changeData } = useSortingAnimator(
@@ -17,6 +21,8 @@ const App = () => {
 
   const algorithms = {
     "Bubble Sort": bubbleSort,
+    "Selection Sort": selectionSort,
+    "Insertion Sort": insertionSort,
   };
 
   return (
@@ -25,7 +31,7 @@ const App = () => {
         style={{
           height: "var(--nav-height)",
         }}
-        className="border-black border-b-2"
+        className="border-black border-b-2 relative"
       >
         <div className="flex justify-between items-center h-[50px] max-w-[95%] m-auto">
           <h1 className="text-2xl">{Object.keys(algorithms)[0]}</h1>
@@ -48,9 +54,37 @@ const App = () => {
               color={!started ? "black" : "var(--grey)"}
               size={22}
               className="cursor-pointer"
+              onClick={() => setShowSettings((v) => !v)}
             />
           </div>
         </div>
+        {showSettings && (
+          <div className="floating-settings">
+            <div className="input">
+              <label htmlFor="algorithm">algorithm</label>
+              <select name="algorithm">
+                {Object.keys(algorithms).map((v, i) => (
+                  <option key={`${i}-${v}`}>{v}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="input">
+              <label htmlFor="arraySize">Array Size</label>
+              <input
+                value={listLength}
+                onChange={(e) => setListLength(e.target.valueAsNumber)}
+                name="arraySize"
+                type="range"
+              />
+            </div>
+
+            <div className="input">
+              <label htmlFor="timing">Sorting speed</label>
+              <input name="timing" type="range" />
+            </div>
+          </div>
+        )}
       </nav>
       <div
         style={{

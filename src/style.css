@@ -17,3 +17,15 @@
 html {
   font-family: "Agdasima", sans-serif;
 }
+
+.floating-settings {
+  @apply absolute bg-white z-10 right-0 top-[49px] flex flex-col gap-3 w-8/12 border-black border p-2;
+}
+
+.input {
+  @apply flex flex-col;
+}
+
+.input > label {
+  @apply text-base capitalize font-bold;
+}
