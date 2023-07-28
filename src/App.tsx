@@ -129,13 +129,16 @@ const App = () => {
             <div className="input">
               <label htmlFor="algorithm">algorithm</label>
               <select
+                value={algorithm}
                 onChange={(e) => {
                   setAlgorithm(e.currentTarget.value);
                 }}
                 name="algorithm"
               >
                 {Object.keys(algorithms).map((v, i) => (
-                  <option key={`${i}-${v}`}>{v}</option>
+                  <option value={v} key={`${i}-${v}`}>
+                    {v}
+                  </option>
                 ))}
               </select>
             </div>
