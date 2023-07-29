@@ -11,7 +11,7 @@ Currently the following algorithms are available
 - [x] Insertion sort
 - [ ] Merge sort
 - [ ] Quick sort
-- [ ] Heap sort
+- [x] Heap sort
 
 ## Demo
 

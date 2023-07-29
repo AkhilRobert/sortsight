@@ -24,7 +24,7 @@ export const bubbleSort = function* (
       }
     }
 
-    // Optimization: Breaking out of loop if the array is fully sorted
+    // Optimization: Breaking out of loop if the array is fully sorted ie, there has been no swap occured
     if (!swapped) {
       break;
     }

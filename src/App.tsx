@@ -7,6 +7,7 @@ import { selectionSort } from "./algorithms/selection-sort";
 import { insertionSort } from "./algorithms/insertion-sort";
 import { SortingAnim } from "./utils/types";
 import { useClickAway } from "./hooks/useClickAway";
+import { heapSort } from "./algorithms/heap-sort";
 
 const algorithms: Record<
   string,
@@ -15,6 +16,7 @@ const algorithms: Record<
   "Bubble Sort": bubbleSort,
   "Selection Sort": selectionSort,
   "Insertion Sort": insertionSort,
+  "Heap Sort": heapSort,
 };
 
 const algorithmName = Object.keys(algorithms);
@@ -23,7 +25,7 @@ const LIST_MIN = 10;
 const LIST_MAX = 100;
 
 const SPEED_MIN = 10;
-const SPEED_MAX = 100;
+const SPEED_MAX = 500;
 
 const App = () => {
   const [listLength, setListLength] = useState<number>(30);
