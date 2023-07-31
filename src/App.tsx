@@ -31,7 +31,7 @@ const SPEED_MAX = 500;
 
 const App = () => {
   const [listLength, setListLength] = useState<number>(30);
-  const [algorithm, setAlgorithm] = useState<string>(algorithmName[4]);
+  const [algorithm, setAlgorithm] = useState<string>(algorithmName[0]);
   const [showSettings, setShowSettings] = useState<boolean>(false);
   const [speed, setSpeed] = useState(100);
   const [started, setStarted] = useState(false);
@@ -114,9 +114,13 @@ const App = () => {
             />
             <TbRepeat
               color={!started ? "black" : "var(--grey)"}
-              onClick={() => {
-                setData({ list: generateRandomArray(listLength) });
-              }}
+              onClick={
+                !started
+                  ? () => {
+                      setData({ list: generateRandomArray(listLength) });
+                    }
+                  : undefined
+              }
               size={22}
               className="cursor-pointer"
             />
@@ -124,7 +128,7 @@ const App = () => {
               color={!started ? "black" : "var(--grey)"}
               size={22}
               className="cursor-pointer"
-              onClick={() => setShowSettings((v) => !v)}
+              onClick={!started ? () => setShowSettings((v) => !v) : undefined}
             />
           </div>
         </div>
