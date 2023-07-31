@@ -9,7 +9,7 @@ Currently the following algorithms are available
 - [x] Bubble sort (optimized version)
 - [x] Selection sort
 - [x] Insertion sort
-- [ ] Merge sort
+- [x] Merge sort
 - [ ] Quick sort
 - [x] Heap sort
 
@@ -28,6 +28,9 @@ pnpm dev
 
 ## References
 
-- https://www.programiz.com/dsa/bubble-sort
-- https://www.programiz.com/dsa/selection-sort
-- https://www.programiz.com/dsa/insertion-sort
+- Bubble Sort https://www.programiz.com/dsa/bubble-sort
+- Selection Sort https://www.programiz.com/dsa/selection-sort
+- Insertion Sort https://www.programiz.com/dsa/insertion-sort
+- MergeSort
+  - https://www.programiz.com/dsa/merge-sort
+  - https://stackoverflow.com/questions/62993954/how-do-i-make-this-merge-sort-function-a-generator-python
