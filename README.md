@@ -6,13 +6,13 @@ A simple web application for visualizing various sorting algorithms. You can try
 
 Currently the following algorithms are available
 
-- [x] Bubble sort (optimized version)
-- [x] Selection sort
-- [x] Insertion sort
-- [x] Merge sort
-- [x] Quick sort
-- [x] Heap sort
-- [x] Cocktail shaker sort
+- Bubble sort (optimized version)
+- Selection sort
+- Insertion sort
+- Merge sort
+- Quick sort
+- Heap sort
+- Cocktail shaker sort
 
 ## Demo
 
