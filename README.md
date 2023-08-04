@@ -10,7 +10,7 @@ Currently the following algorithms are available
 - [x] Selection sort
 - [x] Insertion sort
 - [x] Merge sort
-- [ ] Quick sort
+- [x] Quick sort
 - [x] Heap sort
 - [x] Cocktail shaker sort
 
@@ -35,4 +35,5 @@ pnpm dev
 - MergeSort
   - https://www.programiz.com/dsa/merge-sort
   - https://stackoverflow.com/questions/62993954/how-do-i-make-this-merge-sort-function-a-generator-python
+- QuickSort https://www.programiz.com/dsa/quick-sort
 - Cocktail shaker sort https://en.wikipedia.org/wiki/Cocktail_shaker_sort

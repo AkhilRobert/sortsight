@@ -10,6 +10,7 @@ import { useClickAway } from "./hooks/useClickAway";
 import { heapSort } from "./algorithms/heap-sort";
 import { mergeSort } from "./algorithms/merge-sort";
 import { cockTailShakerSort } from "./algorithms/cocktail-shaker-sort";
+import { quickSort } from "./algorithms/quick-sort";
 
 const algorithms: Record<
   string,
@@ -20,6 +21,7 @@ const algorithms: Record<
   "Insertion Sort": insertionSort,
   "Heap Sort": heapSort,
   "Merge Sort": mergeSort,
+  "Quick Sort": quickSort,
   "Cock Tail Shaker Sort": cockTailShakerSort,
 };
 
