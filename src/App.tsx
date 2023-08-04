@@ -9,6 +9,7 @@ import { SortingAnim } from "./utils/types";
 import { useClickAway } from "./hooks/useClickAway";
 import { heapSort } from "./algorithms/heap-sort";
 import { mergeSort } from "./algorithms/merge-sort";
+import { cockTailShakerSort } from "./algorithms/cocktail-shaker-sort";
 
 const algorithms: Record<
   string,
@@ -19,9 +20,10 @@ const algorithms: Record<
   "Insertion Sort": insertionSort,
   "Heap Sort": heapSort,
   "Merge Sort": mergeSort,
+  "Cock Tail Shaker Sort": cockTailShakerSort,
 };
 
-const algorithmName = Object.keys(algorithms);
+const algorithmNames = Object.keys(algorithms);
 
 const LIST_MIN = 10;
 const LIST_MAX = 100;
@@ -29,9 +31,10 @@ const LIST_MAX = 100;
 const SPEED_MIN = 10;
 const SPEED_MAX = 500;
 
+// TODO: Add a stop button
 const App = () => {
   const [listLength, setListLength] = useState<number>(30);
-  const [algorithm, setAlgorithm] = useState<string>(algorithmName[0]);
+  const [algorithm, setAlgorithm] = useState<string>(algorithmNames[0]);
   const [showSettings, setShowSettings] = useState<boolean>(false);
   const [speed, setSpeed] = useState(100);
   const [started, setStarted] = useState(false);

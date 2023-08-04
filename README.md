@@ -12,6 +12,7 @@ Currently the following algorithms are available
 - [x] Merge sort
 - [ ] Quick sort
 - [x] Heap sort
+- [x] Cocktail shaker sort
 
 ## Demo
 
@@ -34,3 +35,4 @@ pnpm dev
 - MergeSort
   - https://www.programiz.com/dsa/merge-sort
   - https://stackoverflow.com/questions/62993954/how-do-i-make-this-merge-sort-function-a-generator-python
+- Cocktail shaker sort https://en.wikipedia.org/wiki/Cocktail_shaker_sort
