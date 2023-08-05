@@ -1,6 +1,6 @@
 # Sortsight
 
-A simple web application for visualizing various sorting algorithms. You can try it out [here](https://sort-sight.surge.sh/)
+A simple web application for visualizing various sorting algorithms. You can try it out [here](https://sortsight.surge.sh/)
 
 ## Algorithms
 
