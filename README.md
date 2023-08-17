@@ -1,6 +1,6 @@
 # Sortsight
 
-A simple web application for visualizing various sorting algorithms. You can try it out [here](https://sortsight.surge.sh/)
+A simple web application for visualizing various sorting algorithms. You can try it out [here](https://sortsight.onrender.com/)
 
 ## Algorithms
 
@@ -22,7 +22,7 @@ Currently the following algorithms are available
 
 To run locally make sure you have [node.js](https://nodejs.org/en) and [pnpm](https://pnpm.io/) installed and the run the following commands
 
-```console
+```sh
 pnpm install
 pnpm dev
 ```
