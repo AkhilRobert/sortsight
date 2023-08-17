@@ -3,7 +3,7 @@ import { SortingAnim } from "../utils/types";
 export const heapSort = function* (
   list: number[]
 ): Generator<SortingAnim, void, unknown> {
-  for (let i = list.length / 2 - 1; i >= 0; i--) {
+  for (let i = Math.floor(list.length / 2 - 1); i >= 0; i--) {
     yield {
       list,
       scanningIdx: [i],
