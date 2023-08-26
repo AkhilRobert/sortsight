@@ -30,6 +30,13 @@ export const bubbleSort = function* (
     }
   }
 
+  for (let i = 0; i < list.length; ++i) {
+    yield {
+      list,
+      scanningIdx: [i],
+    };
+  }
+
   yield {
     list,
   };

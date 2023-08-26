@@ -42,6 +42,13 @@ export const cockTailShakerSort = function* (
     if (!swapped) break;
   } while (true);
 
+  for (let i = 0; i < list.length; ++i) {
+    yield {
+      list,
+      scanningIdx: [i],
+    };
+  }
+
   yield {
     list,
   };

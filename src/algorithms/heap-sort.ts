@@ -28,6 +28,13 @@ export const heapSort = function* (
     yield* heapify(list, i, 0);
   }
 
+  for (let i = 0; i < list.length; ++i) {
+    yield {
+      list,
+      scanningIdx: [i],
+    };
+  }
+
   yield {
     list,
   };
