@@ -1,7 +1,7 @@
 import { calculatePercentage, generateRandomArray } from "./utils";
 import { Visualizer } from "./components/visualizer";
 import { useEffect, useRef, useState } from "react";
-import { TbTriangle, TbRepeat, TbSettings } from "react-icons/tb";
+import { TbTriangle, TbRepeat, TbSettings, TbRectangle } from "react-icons/tb";
 import { bubbleSort } from "./algorithms/bubble-sort";
 import { selectionSort } from "./algorithms/selection-sort";
 import { insertionSort } from "./algorithms/insertion-sort";
@@ -111,12 +111,26 @@ const App = () => {
         <div className="flex justify-between items-center h-[50px] max-w-[95%] m-auto">
           <h1 className="text-2xl">{algorithm}</h1>
           <div className="flex gap-4 items-center">
-            <TbTriangle
-              size={22}
-              color={!started ? "black" : "var(--grey)"}
-              onClick={!started ? () => setStarted(true) : undefined}
-              className="rotate-90 cursor-pointer"
-            />
+            {started ? (
+              <TbRectangle
+                size={22}
+                color="red"
+                onClick={() => {
+                  // HACK: deepcopy of the array so react picks up the change
+                  const list = JSON.parse(JSON.stringify(data.list));
+                  setData({ list });
+                  setStarted(false);
+                }}
+                className="cursor-pointer"
+              />
+            ) : (
+              <TbTriangle
+                size={22}
+                color={"black"}
+                onClick={() => setStarted(true)}
+                className="rotate-90 cursor-pointer"
+              />
+            )}
             <TbRepeat
               color={!started ? "black" : "var(--grey)"}
               onClick={
