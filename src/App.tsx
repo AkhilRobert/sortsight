@@ -38,8 +38,8 @@ const App = () => {
   const [listLength, setListLength] = useState<number>(30);
   const [algorithm, setAlgorithm] = useState<string>(algorithmNames[0]);
   const [showSettings, setShowSettings] = useState<boolean>(false);
-  const [speed, setSpeed] = useState(0);
-  const [timing, setTiming] = useState(10);
+  const [speed, setSpeed] = useState(200);
+  const [timing, setTiming] = useState(speed);
   const [started, setStarted] = useState(false);
   const [data, setData] = useState<SortingAnim>({
     list: generateRandomArray(listLength),
