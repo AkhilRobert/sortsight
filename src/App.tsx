@@ -30,7 +30,7 @@ const algorithmNames = Object.keys(algorithms);
 const LIST_MIN = 10;
 const LIST_MAX = 100;
 
-const SPEED_MIN = 10;
+const SPEED_MIN = 0;
 const SPEED_MAX = 500;
 
 // TODO: Add a stop button
@@ -38,7 +38,8 @@ const App = () => {
   const [listLength, setListLength] = useState<number>(30);
   const [algorithm, setAlgorithm] = useState<string>(algorithmNames[0]);
   const [showSettings, setShowSettings] = useState<boolean>(false);
-  const [speed, setSpeed] = useState(100);
+  const [speed, setSpeed] = useState(0);
+  const [timing, setTiming] = useState(10);
   const [started, setStarted] = useState(false);
   const [data, setData] = useState<SortingAnim>({
     list: generateRandomArray(listLength),
@@ -89,13 +90,13 @@ const App = () => {
           clearInterval(id);
           setStarted(false);
         }
-      }, speed);
+      }, timing);
     }
 
     return () => {
       clearInterval(id);
     };
-  }, [generator, started, speed]);
+  }, [generator, started, timing]);
 
   const listPercentage = calculatePercentage(listLength, LIST_MIN, LIST_MAX);
   const speedPercentage = calculatePercentage(speed, SPEED_MIN, SPEED_MAX);
@@ -203,13 +204,15 @@ const App = () => {
                   value={speed}
                   onChange={(e) => {
                     setSpeed(e.currentTarget.valueAsNumber);
+                    setTiming(SPEED_MAX - e.currentTarget.valueAsNumber);
                   }}
+                  step={100}
                   min={SPEED_MIN}
                   max={SPEED_MAX}
                   name="timing"
                   type="range"
                 />
-                <span>{speed} ms</span>
+                <span>{speed / 50} x</span>
               </div>
             </div>
           </div>
