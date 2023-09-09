@@ -5,6 +5,13 @@ export const quickSort = function* (
 ): Generator<SortingAnim, void, unknown> {
   yield* helper(list, 0, list.length - 1);
 
+  for (let i = 0; i < list.length; ++i) {
+    yield {
+      list,
+      scanningIdx: [i],
+    };
+  }
+
   yield {
     list,
   };
