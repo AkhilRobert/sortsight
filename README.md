@@ -1,6 +1,6 @@
 # Sortsight
 
-A simple web application for visualizing various sorting algorithms. You can try it out [here](https://sortsight.onrender.com/)
+> A web application for visualizing various sorting algorithms
 
 ## Algorithms
 
@@ -15,7 +15,6 @@ Currently the following algorithms are available
 - Cocktail shaker sort
 
 ## Demo
-
 ![application demo](./clippings/demo.gif)
 
 ## Running Instructions
