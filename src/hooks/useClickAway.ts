@@ -1,6 +1,9 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useEffect, ElementRef } from "react";
 
-export const useClickAway = (ref: RefObject<HTMLElement>, fn: () => void) => {
+export const useClickAway = (
+  ref: RefObject<ElementRef<"html">>,
+  fn: () => void,
+) => {
   useEffect(() => {
     document.addEventListener("mousedown", (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
